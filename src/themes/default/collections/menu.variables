@@ -16,8 +16,8 @@
 --------------------*/
 
 @margin: 1rem 0rem;
-@verticalPadding: 0.78571em;
-@horizontalPadding: 0.95em;
+@verticalPadding: 0.9285em;
+@horizontalPadding: 1.2857em;
 
 @background: #FFFFFF;
 @itemBackground: none;
@@ -153,7 +153,8 @@
 
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
-@activeBorderSize: 2px;
+
+@activeBorderSize: 0px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
 
@@ -263,6 +264,18 @@
    Variations
 ---------------*/
 
+/* Selection Menu */
+@selectionTextColor: @lightTextColor;
+@selectionTextHoverColor: @textColor;
+@selectionTextPressedColor: @pressedTextColor;
+
+@invertedSelectionTextColor: @invertedLightTextColor;
+@invertedSelectionHoverTextColor: @invertedHoveredTextColor;
+@invertedSelectionPressedTextColor: @invertedPressedTextColor;
+
+/* Floated Menu */
+@floatedMargin: 0.5rem;
+
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
@@ -304,7 +317,11 @@
   rgba(255, 255, 255, 0.03) 100%)
 ;
 
+/* Compact */
+@compactVerticalAlign: middle;
+
 /* Fixed */
+@fixedZIndex: 101;
 @fixedGridMargin: 2.75rem;
 
 /* Attached */

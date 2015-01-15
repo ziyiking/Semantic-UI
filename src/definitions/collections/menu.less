@@ -27,6 +27,8 @@
 ---------------*/
 
 .ui.menu {
+  display: flex;
+  flex-direction: row;
   margin: @margin;
   background: @background;
   font-size: 0px;
@@ -51,6 +53,52 @@
 }
 
 /*--------------
+      Items
+---------------*/
+
+.ui.menu .item {
+  position: relative;
+  display: inline-block;
+  flex-direction: column;
+  flex: 0 0 auto;
+
+  vertical-align: middle;
+  line-height: 1;
+  text-decoration: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+
+  padding: @verticalPadding @horizontalPadding;
+  border-top: @borderSize solid transparent;
+  background: @itemBackground;
+  transition: @transition;
+}
+
+.ui.menu > .menu,
+.ui.menu > .menu > .menu {
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0em;
+}
+
+/* Floated Content */
+.ui.menu > .item:first-child {
+  border-radius: @borderRadius 0px 0px @borderRadius;
+}
+.ui.menu:not(.vertical) .item.left,
+.ui.menu:not(.vertical) .menu.left {
+  float: left;
+  margin-right: auto;
+}
+.ui.menu:not(.vertical) .item.right,
+.ui.menu:not(.vertical) .menu.right {
+  float: right;
+  margin-left: auto;
+}
+
+
+/*--------------
      Colors
 ---------------*/
 
@@ -68,44 +116,6 @@
   color: @darkTextColor;
 }
 
-
-/*--------------
-      Items
----------------*/
-
-.ui.menu .item {
-  position: relative;
-  display: inline-block;
-  padding: @verticalPadding @horizontalPadding;
-  border-top: @borderSize solid transparent;
-
-  background: @itemBackground;
-  vertical-align: middle;
-  line-height: 1;
-  text-decoration: none;
-  box-sizing: border-box;
-
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  transition: @transition;
-}
-
-.ui.menu .menu {
-  margin: 0em;
-}
-
-/* Floated Content */
-.ui.menu > .item:first-child {
-  border-radius: @borderRadius 0px 0px @borderRadius;
-}
-.ui.menu:not(.vertical) .item.left,
-.ui.menu:not(.vertical) .menu.left {
-  float: left;
-}
-.ui.menu:not(.vertical) .item.right,
-.ui.menu:not(.vertical) .menu.right {
-  float: right;
-}
 
 
 /*--------------
@@ -407,6 +417,7 @@
 ---------------*/
 
 .ui.vertical.menu {
+  display: block;
   background: @verticalBackground;
 }
 
@@ -424,6 +435,23 @@
 }
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px @borderRadius @borderRadius;
+}
+
+/*--- Sub-Menu ---*/
+.ui.vertical.menu > .menu,
+.ui.vertical.menu > .menu > .menu {
+  display: block;
+}
+.ui.vertical.menu .item:not(.dropdown) > .menu {
+  margin: @subMenuMargin -@horizontalPadding 0em;
+}
+.ui.vertical.menu .item:not(.dropdown) > .menu > .item {
+  background: none;
+  padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
+  font-size: @subMenuFontSize;
+}
+.ui.vertical.menu .item > .menu > .item:before {
+  display: none;
 }
 
 /*--- Label ---*/
@@ -487,19 +515,6 @@
   box-shadow: none;
 }
 
-/*--- Sub Menu ---*/
-.ui.vertical.menu .item:not(.dropdown) > .menu {
-  margin: @subMenuMargin -@horizontalPadding 0em;
-}
-.ui.vertical.menu .item:not(.dropdown) > .menu > .item {
-  background: none;
-  padding: @subMenuHorizontalPadding @subMenuVerticalPadding;
-  font-size: @subMenuFontSize;
-}
-.ui.vertical.menu .item > .menu > .item:before {
-  display: none;
-}
-
 
 /*--------------
      Tiered
@@ -510,6 +525,9 @@
 }
 .ui.tiered.menu .active.item {
   background: @tieredActiveItemBackground;
+}
+.ui.tiered.menu .active.item + .item {
+  border-bottom-left-radius: @borderRadius;
 }
 .ui.tiered.menu > .menu .item.active:after {
   position: absolute;
@@ -1235,23 +1253,23 @@
 ---------------*/
 
 .ui.selection.menu > .item {
-  color: rgba(0, 0, 0, 0.4);
+  color: @selectionTextColor;
 }
 .ui.selection.menu > .item:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: @selectionTextHoverColor;
 }
 .ui.selection.menu > .item.active {
-  color: rgba(0, 0, 0, 0.85);
+  color: @selectionTextPressedColor;
 }
 
 .ui.inverted.selection.menu > .item {
-  color: rgba(255, 255, 255, 0.4);
+  color: @invertedSelectionTextColor;
 }
 .ui.inverted.selection.menu > .item:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: @invertedSelectionHoverTextColor;
 }
 .ui.inverted.selection.menu > .item.active {
-  color: #FFFFFF;
+  color: @invertedSelectionPressedTextColor;
 }
 
 
@@ -1261,11 +1279,11 @@
 
 .ui.floated.menu {
   float: left;
-  margin: 0rem 0.5rem 0rem 0rem;
+  margin: 0em auto 0em 0em;
 }
 .ui.right.floated.menu {
   float: right;
-  margin: 0rem 0rem 0rem 0.5rem;
+  margin: 0em 0em 0em auto;
 }
 
 
@@ -1377,7 +1395,7 @@
 .ui.compact.menu {
   display: inline-block;
   margin: 0em;
-  vertical-align: middle;
+  vertical-align: @compactVerticalAlign;
 }
 .ui.compact.vertical.menu {
   width: auto !important;
@@ -1409,37 +1427,37 @@
   text-align: center;
 }
 .ui.menu.two.item .item {
-  width: 50%;
+  width: @twoColumn;
 }
 .ui.menu.three.item .item {
-  width: 33.333%;
+  width: @threeColumn;
 }
 .ui.menu.four.item .item {
-  width: 25%;
+  width: @fourColumn;
 }
 .ui.menu.five.item .item {
-  width: 20%;
+  width: @fiveColumn;
 }
 .ui.menu.six.item .item {
-  width: 16.666%;
+  width: @sixColumn;
 }
 .ui.menu.seven.item .item {
-  width: 14.285%;
+  width: @sevenColumn;
 }
 .ui.menu.eight.item .item {
-  width: 12.500%;
+  width: @eightColumn;
 }
 .ui.menu.nine.item .item {
-  width: 11.11%;
+  width: @nineColumn;
 }
 .ui.menu.ten.item .item {
-  width: 10.0%;
+  width: @tenColumn;
 }
 .ui.menu.eleven.item .item {
-  width: 9.09%;
+  width: @elevenColumn;
 }
 .ui.menu.twelve.item .item {
-  width: 8.333%;
+  width: @twelveColumn;
 }
 
 
@@ -1447,16 +1465,16 @@
      Fixed
 ---------------*/
 
-.ui.menu.fixed {
+.ui.fixed.menu {
   position: fixed;
-  z-index: 101;
+  z-index: @fixedZIndex;
   margin: 0em;
   border: none;
   width: 100%;
 }
-.ui.menu.fixed,
-.ui.menu.fixed .item:first-child,
-.ui.menu.fixed .item:last-child {
+.ui.fixed.menu,
+.ui.fixed.menu .item:first-child,
+.ui.fixed.menu .item:last-child {
   border-radius: 0px !important;
 }
 
