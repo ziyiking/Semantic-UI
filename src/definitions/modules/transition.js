@@ -593,25 +593,35 @@ $.fn.transition = function() {
                 .addClass(className.inward)
                 .css(animationName)
               ;
-              displayType = $clone
-                .attr('class', elementClass)
-                .removeAttr('style')
-                .show()
-                .css('display')
-              ;
               if(currentAnimation !== inAnimation) {
                 if(direction == 'in') {
-                  $clone
+                  displayType = $clone
+                    .attr('class', elementClass)
+                    .removeAttr('style')
                     .removeClass(className.hidden)
                     .addClass(className.visible)
+                    .show()
+                    .css('display')
                   ;
                 }
                 if(direction == 'out') {
-                  $clone
+                  displayType = $clone
+                    .attr('class', elementClass)
+                    .removeAttr('style')
                     .removeClass(className.visible)
-                    .addClass(className.hidden)
+                    .removeClass(className.hidden)
+                    .show()
+                    .css('display')
                   ;
                 }
+              }
+              else {
+                displayType = $clone
+                  .attr('class', elementClass)
+                  .removeAttr('style')
+                  .show()
+                  .css('display')
+                ;
               }
               displayType = $clone.css('display');
               module.verbose('Determining final display state', displayType);
