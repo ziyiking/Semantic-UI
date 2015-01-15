@@ -53,16 +53,8 @@
 }
 
 /* Dimmer Content */
-.ui.dimmer > .content {
-  width: 100%;
-  height: 100%;
-  display: @contentDisplay;
-  user-select: text;
-}
-.ui.dimmer > .content > div {
-  display: @contentChildDisplay;
-  vertical-align: @verticalAlign;
-  color: @textColor;
+.ui.dimmer > * {
+  margin: auto auto !important;
 }
 
 
@@ -80,10 +72,10 @@
   overflow: @overflow;
 }
 
-.dimmed.dimmable > .ui.animating.dimmer,
-.dimmed.dimmable > .ui.visible.dimmer,
+.ui.animating.dimmer,
+.ui.visible.dimmer,
 .ui.active.dimmer {
-  display: block;
+  display: flex !important;
   opacity: @visibleOpacity;
 }
 

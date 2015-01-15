@@ -27,8 +27,8 @@
 @hiddenOpacity: 0;
 
 /* Content */
-@contentDisplay: table;
-@contentChildDisplay: table-cell;
+@contentDisplay: flex;
+@contentChildDisplay: block;
 
 /* Visible */
 @visibleOpacity: 1;
