@@ -59,7 +59,7 @@
 
 /* Sub Menu */
 @subMenuMargin: 0.5em;
-@subMenuFontSize: 0.875rem;
+@subMenuFontSize: 0.875em;
 @subMenuTextColor: rgba(0, 0, 0, 0.5);
 
 @subMenuHorizontalPadding: 0.5rem;
@@ -331,13 +331,10 @@
 
 /* Sizes */
 @small: 0.875rem;
-@smallSubMenu: 0.875rem;
 @smallWidth: 13rem;
 
 @medium: 1rem;
 @mediumWidth: 15rem;
 
 @large: 1.125rem;
-@largeSubMenu: 0.875rem;
-@largeDropdown: 1rem;
 @largeWidth: 18rem;
