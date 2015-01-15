@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 1.8.0 - January 14, 2015
+
+**Flexbox**
+
+- **Modal** - Added flex centering. Modal will now vertically center without javascript.
+- **Modal** - Remove all variables dealing with setting `offset` from `width`
+- **Dimmer** - Dimmer contents now use flexbox and no longer need wrapping elements
+
 ### Version 1.7.0 - January 14, 2015
 
 **Major Changes**

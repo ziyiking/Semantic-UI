@@ -193,43 +193,6 @@
 .ui.menu .item > .input {
   width: 100%;
 }
-.ui.menu:not(.vertical) .item > .input {
-  position: relative;
-  top: @inputOffset;
-  margin: @inputVerticalMargin 0em;
-}
-.ui.menu .item > .input input {
-  font-size: @inputSize;
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
-}
-.ui.menu .item > .input .button,
-.ui.menu .item > .input .label {
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
-}
-
-/* Resizes */
-.ui.small.menu .item > .input input {
-  top: @smallInputOffset;
-  padding-top: @smallInputVerticalPadding;
-  padding-bottom: @smallInputVerticalPadding;
-}
-.ui.small.menu .item > .input .button,
-.ui.small.menu .item > .input .label {
-  padding-top: @smallInputVerticalPadding;
-  padding-bottom: @smallInputVerticalPadding;
-}
-.ui.large.menu .item > .input input {
-  top: @largeInputOffset;
-  padding-bottom: @largeInputVerticalPadding;
-  padding-top: @largeInputVerticalPadding;
-}
-.ui.large.menu .item > .input .button,
-.ui.large.menu .item > .input .label {
-  padding-top: @largeInputVerticalPadding;
-  padding-bottom: @largeInputVerticalPadding;
-}
 
 
 /*--------------
@@ -359,7 +322,7 @@
   background: @activeBackground;
   color: @selectedTextColor;
   font-weight: @activeFontWeight;
-  box-shadow: 0em @activeBorderSize 0em inset;
+  box-shadow: @activeBoxShadow;
 }
 .ui.menu .active.item > i.icon {
   opacity: @activeIconOpacity;
@@ -369,7 +332,7 @@
 .ui.vertical.menu .active.item {
   background: @activeBackground;
   border-radius: 0em;
-  box-shadow: @activeBorderSize 0em 0em inset;
+  box-shadow: @verticalActiveBoxShadow;
 }
 .ui.vertical.menu > .active.item:first-child {
   border-radius: 0em @borderRadius 0em 0em;
@@ -427,7 +390,6 @@
 .ui.vertical.menu .item {
   background: @verticalItemBackground;
   display: block;
-  height: auto !important;
   border-top: none;
   border-left: @borderSize solid transparent;
   border-right: none;

@@ -157,6 +157,8 @@
 @activeBorderSize: 0px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
+@activeBorder: 0em @activeBorderSize 0em transparent;
+@verticalActiveBorder: @activeBorderSize 0em 0em transparent;
 
 @activeHoverBackground: @hoverBackground;
 @subMenuActiveBackground: transparent;

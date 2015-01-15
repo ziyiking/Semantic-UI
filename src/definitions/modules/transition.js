@@ -470,6 +470,14 @@ $.fn.transition = function() {
             }
             return $.fn.transition.settings;
           },
+          direction: function() {
+            if($module.is(':visible') && !module.is.hidden()) {
+              return 'out';
+            }
+            else {
+              return 'in';
+            }
+          },
           duration: function(duration) {
             duration = duration || settings.duration;
             return (typeof settings.duration === 'string')
@@ -558,10 +566,11 @@ $.fn.transition = function() {
         can: {
           transition: function(forced) {
             var
-              elementClass      = $module.attr('class'),
-              tagName           = $module.prop('tagName'),
-              animation         = settings.animation,
-              transitionExists  = module.get.transitionExists(animation),
+              elementClass     = $module.attr('class'),
+              tagName          = $module.prop('tagName'),
+              animation        = settings.animation,
+              direction        = module.get.direction(),
+              transitionExists = module.get.transitionExists(animation),
               $clone,
               currentAnimation,
               inAnimation,
@@ -579,6 +588,7 @@ $.fn.transition = function() {
                 .addClass(className.transition)
                 .css(animationName)
               ;
+
               inAnimation = $clone
                 .addClass(className.inward)
                 .css(animationName)
@@ -586,11 +596,24 @@ $.fn.transition = function() {
               displayType = $clone
                 .attr('class', elementClass)
                 .removeAttr('style')
-                .removeClass(className.hidden)
-                .removeClass(className.visible)
                 .show()
                 .css('display')
               ;
+              if(currentAnimation !== inAnimation) {
+                if(direction == 'in') {
+                  $clone
+                    .removeClass(className.hidden)
+                    .addClass(className.visible)
+                  ;
+                }
+                if(direction == 'out') {
+                  $clone
+                    .removeClass(className.visible)
+                    .addClass(className.hidden)
+                  ;
+                }
+              }
+              displayType = $clone.css('display');
               module.verbose('Determining final display state', displayType);
               $clone.remove();
               if(currentAnimation != inAnimation) {
