@@ -16,8 +16,8 @@
 --------------------*/
 
 @margin: 1rem 0rem;
-@verticalPadding: 0.9285em;
-@horizontalPadding: 1.2857em;
+@verticalPadding: 0.78571em;
+@horizontalPadding: 0.95em;
 
 @background: #FFFFFF;
 @itemBackground: none;
@@ -59,7 +59,7 @@
 
 /* Sub Menu */
 @subMenuMargin: 0.5em;
-@subMenuFontSize: 0.875em;
+@subMenuFontSize: 0.875rem;
 @subMenuTextColor: rgba(0, 0, 0, 0.5);
 
 @subMenuHorizontalPadding: 0.5rem;
@@ -155,12 +155,9 @@
 
 @activeBackground: @subtleTransparentBlack;
 @activeColor: @darkTextColor;
-
-@activeBorderSize: 0px;
+@activeBorderSize: 2px;
 @activeFontWeight: normal;
 @activeIconOpacity: 1;
-@activeBoxShadow: 0em @activeBorderSize 0em transparent;
-@verticalActiveBoxShadow: @activeBorderSize 0em 0em transparent;
 
 @activeHoverBackground: @hoverBackground;
 @subMenuActiveBackground: transparent;
@@ -194,8 +191,8 @@
 
 @secondaryMargin: 0.25em;
 @secondaryVerticalMargin: 0.3em;
-@secondaryVerticalPadding: 0.78571em;
-@secondaryHorizontalPadding: 1em;
+@secondaryVerticalPadding: 0.5em;
+@secondaryHorizontalPadding: 0.8em;
 
 @secondaryLinkOpacity: 0.8;
 
@@ -268,18 +265,6 @@
    Variations
 ---------------*/
 
-/* Selection Menu */
-@selectionTextColor: @lightTextColor;
-@selectionTextHoverColor: @textColor;
-@selectionTextPressedColor: @pressedTextColor;
-
-@invertedSelectionTextColor: @invertedLightTextColor;
-@invertedSelectionHoverTextColor: @invertedHoveredTextColor;
-@invertedSelectionPressedTextColor: @invertedPressedTextColor;
-
-/* Floated Menu */
-@floatedMargin: 0.5rem;
-
 /* Inverted */
 @invertedBackground: @black;
 @invertedBoxShadow: none;
@@ -321,11 +306,7 @@
   rgba(255, 255, 255, 0.03) 100%)
 ;
 
-/* Compact */
-@compactVerticalAlign: middle;
-
 /* Fixed */
-@fixedZIndex: 101;
 @fixedGridMargin: 2.75rem;
 
 /* Attached */
@@ -333,10 +314,13 @@
 
 /* Sizes */
 @small: 0.875rem;
+@smallSubMenu: 0.875rem;
 @smallWidth: 13rem;
 
 @medium: 1rem;
 @mediumWidth: 15rem;
 
 @large: 1.125rem;
+@largeSubMenu: 0.875rem;
+@largeDropdown: 1rem;
 @largeWidth: 18rem;

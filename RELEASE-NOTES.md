@@ -38,7 +38,6 @@
 - **Installer** - Fixes installer not including RTL parameter correctly
 - **UI** - Fixes `progress`, `ad`, and `sidebar` not loading `.override` files correctly
 - Removed undocumented components from `theme.config.example`
->>>>>>> d42dbecd915ea02c31f21c2ed26146176c40d7e6
 
 ### Version 1.7.0 - January 14, 2015
 
