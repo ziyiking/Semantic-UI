@@ -6,7 +6,7 @@
 
 - **Modal** - Added flex centering. Modal will now vertically center without javascript.
 - **Modal** - Remove all javascript calculations for centering and css variables dealing with `offset` for centering
-- **Dimmer** - Dimmer contents now use flexbox and no longer need wrapping elements
+- **Dimmer** - Dimmer contents now use flexbox and are automatically vertically centered. `content` html elements for vertical centering are removed.
 
 **Enhancements**
 - **Dropdown** - Keyboard navigation will now allow opening of sub menus with right/left arrow. Enter will open sub-menus on an unselectable category (`allowCategorySelection: false`) as well.

@@ -261,12 +261,13 @@ $.fn.transition = function() {
               })
             ;
           },
-          display: function() {
+          display: function(displayType) {
             var
               style              = module.get.style(),
-              displayType        = module.get.displayType(),
-              overrideStyle      = style + 'display: ' + displayType + ' !important;'
+              overrideStyle
             ;
+            displayType   = displayType || module.get.displayType();
+            overrideStyle = style + 'display: ' + displayType + ' !important;';
             $module.css('display', '');
             module.refresh();
             if( $module.css('display') !== displayType ) {
@@ -306,9 +307,7 @@ $.fn.transition = function() {
               ;
               if($module.css('display') !== 'none') {
                 module.verbose('Overriding default display to hide element');
-                $module
-                  .css('display', 'none')
-                ;
+                module.set.display('none');
               }
             }
           },

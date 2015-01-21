@@ -103,7 +103,7 @@
 @basicInnerCloseColor: @white;
 
 /* Scrolling Margin */
-@scrollingMargin: 3.5rem;
+@scrollingMargin: auto auto;
 @mobileScrollingMargin: 1rem;
 
 /*-------------------

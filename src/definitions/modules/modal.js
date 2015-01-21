@@ -304,9 +304,8 @@ $.fn.modal = function(parameters) {
             module.set.type();
             module.set.clickaway();
 
-            if( !settings.allowMultiple && $otherModals.filter(':visible').length > 0) {
+            if( !settings.allowMultiple &&  module.hideOthers(module.showModal)) {
               module.debug('Other modals visible, queueing show animation');
-              module.hideOthers(module.showModal);
             }
             else {
               settings.onShow.call(element);
@@ -424,32 +423,40 @@ $.fn.modal = function(parameters) {
         },
 
         hideAll: function(callback) {
+          var
+            $visibleModals = $allModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $allModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding all visible modals');
             module.hideDimmer();
-            $allModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback)
             ;
+            return true;
           }
+          return false;
         },
 
         hideOthers: function(callback) {
+          var
+            $visibleModals = $otherModals.filter(':visible')
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
-          if( $otherModals.is(':visible') ) {
+          if( $visibleModals.length > 0 ) {
             module.debug('Hiding other modals', $otherModals);
-            $otherModals
-              .filter(':visible')
-                .modal('hide modal', callback)
+            $visibleModals
+              .modal('hide modal', callback)
             ;
+            return true;
           }
+          return false;
         },
 
         othersActive: function() {
@@ -555,7 +562,7 @@ $.fn.modal = function(parameters) {
           autofocus: function() {
             if(settings.autofocus) {
               var
-                $inputs    = $module.find(':input:visible'),
+                $inputs    = $module.find('input').filter(':visible'),
                 $autofocus = $inputs.filter('[autofocus]'),
                 $input     = ($autofocus.length > 0)
                   ? $autofocus
